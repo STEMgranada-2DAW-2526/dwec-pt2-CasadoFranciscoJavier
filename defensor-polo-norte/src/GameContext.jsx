@@ -67,7 +67,7 @@ export function GameProvider({ children }) {
            
              outputState = {
                 ...state,
-                damagePerShot: state.damagePerShot + 2,
+                autoShotsPerSecond: state.autoShotsPerSecond + 2,
                 caramels: state.caramels - state.PriceTurron,
                
             }
@@ -82,7 +82,7 @@ export function GameProvider({ children }) {
            
              outputState = {
                 ...state,
-                damagePerShot: state.damagePerShot + 5,
+                autoShotsPerSecond: state.autoShotsPerSecond + 5,
                 caramels: state.caramels - state.PriceRenoExplosivo,
                
             }
@@ -94,7 +94,7 @@ export function GameProvider({ children }) {
            
              outputState = {
                 ...state,
-                damagePerShot: state.damagePerShot + 10,
+                autoShotsPerSecond: state.autoShotsPerSecond + 10,
                 caramels: state.caramels - state.PriceNavidadLaser,
                
             }
