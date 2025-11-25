@@ -103,10 +103,10 @@ export function GameProvider({ children }) {
         }
 
 
-         else if (action.type == 'NEXT_WAVE' && state.caramels >= state.multiplierPrice) {
+         else if (action.type == 'NEXT_WAVE' ) {
             outputState = {
                 ...state,
-                damagePerShot: state.damagePerShot + 1,
+             
                 waveGoal: Math.round(state.waveGoal * 1.10),
                 numeroOleada: state.numeroOleada + 1,
                 damageDealt: 0
