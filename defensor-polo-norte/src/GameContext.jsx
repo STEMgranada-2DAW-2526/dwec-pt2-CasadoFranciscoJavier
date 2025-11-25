@@ -59,7 +59,7 @@ export function GameProvider({ children }) {
             }
         }
 
-        else if (action.type == 'BUY_DAMAGE:UPGRADE' && state.caramels >= state.multiplierPrice) {
+        else if (action.type == 'BUY_DAMAGE:TURRON' && state.caramels >= state.multiplierPrice) {
            
              outputState = {
                 ...state,

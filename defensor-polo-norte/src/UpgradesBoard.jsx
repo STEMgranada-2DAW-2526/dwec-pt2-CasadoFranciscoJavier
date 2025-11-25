@@ -14,16 +14,16 @@ export default function UpgradesBoard() {
             </div>
 
             <button
-                    className='col-md-3 col-12 btn btn-primary'
+                    className='col-md-3 col-12 btn btn-warning'
                     onClick={() => dispatch({ type: 'BUY_MULTIPLIER' })}
-                    disabled={state.puntos < state.precioDanioClic}>
+                    disabled={state.caramels < state.multiplierPrice}>
                     <img className='img-fluid' src={state.multiplicador} />
                 
                     Multiplicador
                     <br />
-                    Nivel: {state.danioPorClick}
+                    Nivel: {state.damagePerShot}
                     <br />
-                    {state.precioDanioClic} puntos
+                    {state.multiplierPrice} caramelos
                     <br />
                     <small>(+1 daño por clic)</small>
                 </button>
@@ -33,15 +33,15 @@ export default function UpgradesBoard() {
             <div className='row justify-content-center'>
                 <button
                     className='col-md-3 col-12 btn btn-primary'
-                    onClick={() => dispatch({ type: 'COMPRAR_DANIO_CLIC' })}
-                    disabled={state.puntos < state.precioDanioClic}>
+                    onClick={() => dispatch({ type: 'TURRON' })}
+                    disabled={state.caramels < state.precioDanioClic}>
                     <img className='img-fluid' src={state.canion_turron} />
                 
                     Cañón de turron explosivo
                     <br />
                     Nivel: {state.danioPorClick}
                     <br />
-                    {state.precioDanioClic} puntos
+                    {state.precioDanioClic} caramels
                     <br />
                     <small>(+1 daño por clic)</small>
                 </button>
@@ -49,27 +49,27 @@ export default function UpgradesBoard() {
                 <button
                     className='col-md-3 col-12 btn btn-primary'
                     onClick={() => dispatch({ type: 'COMPRAR_DANIO_SEGUNDO' })}
-                     disabled={state.puntos < state.precioDanioClic}>
+                     disabled={state.caramels < state.precioDanioClic}>
                     <img className='img-fluid' src={state.reno_lanza_cohetes} />
 
                     Renos lanzamisiles
                     <br />
                     Nivel: {state.danioPorSegundo}
                     <br />
-                    {state.precioDanioSegundo} puntos
+                    {state.precioDanioSegundo} caramels
                     <br />
                     <small>(+1 daño/segundo)</small>
                 </button>
 
                 <button
-                    className='col-md-3 col-12 btn btn-warning'
+                    className='col-md-3 col-12 btn btn-primary'
                     onClick={() => dispatch({ type: 'COMPRAR_MEGA_CLIC' })}
-                     disabled={state.puntos < state.precioDanioClic}>
+                     disabled={state.caramels < state.precioDanioClic}>
                     <img className='img-fluid' src={state.arbol_laser} />
 
                    Árbol de Navidad Láser
                     <br />
-                    50 puntos
+                    50 caramels
                     <br />
                    
                     {state.megaClicActivo && (
