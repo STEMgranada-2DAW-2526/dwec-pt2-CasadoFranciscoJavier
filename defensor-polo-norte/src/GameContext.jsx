@@ -37,7 +37,7 @@ export function GameProvider({ children }) {
         if (action.type == 'CLICK_SHOOT') {
             const newDamageDealt = state.damageDealt + state.damagePerShot;
             outputState = { ...state, damageDealt: newDamageDealt };
-            if (newDamageDealt <= state.waveGoal) {
+            if (newDamageDealt >= state.waveGoal) {
                 outputState = { ...state, caramels: state.caramels + 10, damageDealt: state.waveGoal };
             }
         }
@@ -45,7 +45,7 @@ export function GameProvider({ children }) {
         else if (action.type == 'AUTO_SHOOT') {
             const newDamageDealt = state.damageDealt + state.autoShotsPerSecond;
             outputState = { ...state, damageDealt: newDamageDealt };
-            if (newDamageDealt <= state.waveGoal) {
+            if (newDamageDealt >= state.waveGoal) {
                 outputState = { ...state, caramels: state.caramels + 10, damageDealt: state.waveGoal };
             }
         }
@@ -76,7 +76,9 @@ export function GameProvider({ children }) {
             outputState = {
                 ...state,
                 damagePerShot: state.damagePerShot + 1,
-                waveGoal: state.waveGoal * 1.10
+                waveGoal: Math.round(state.waveGoal * 1.10),
+                numeroOleada: state.numeroOleada + 1,
+                damageDealt: 0
             }
 
         }
