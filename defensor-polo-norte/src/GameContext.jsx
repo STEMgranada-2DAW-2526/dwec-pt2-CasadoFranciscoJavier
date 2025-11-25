@@ -44,8 +44,14 @@ export function GameProvider({ children }) {
             }
         }
 
-        else if (action.type == 'BUY_MULTIPLIER' && state.caramels >= state.multiplierPrice) {
+        else if (action.type == 'BUY_DAMAGE:UPGRADE' && state.caramels >= state.multiplierPrice) {
            
+             outputState = {
+                ...state,
+                numeroOleada: state.numeroOleada + 1,
+                enemigosRestantes: cantidadEnemigos,
+                tiempoRestante: 20
+            }
 
 
 
@@ -55,18 +61,34 @@ export function GameProvider({ children }) {
             outputState = {
                 ...state,
                 damagePerShot: state.damagePerShot + 1,
-                caramels: state.caramels - state.multiplierPrice,
-                multiplierPrice: Math.round(state.multiplierPrice * 1.2)
+                waveGoal: state.waveGoal * 1.10
             }
-
-
 
         }
 
+        return outputState;
     }
+
+    
 
 
         const [state, dispatch] = useReducer(gameReducer, INITIAL_STATE)
+
+          useEffect(() => {
+        let timer = setInterval(() => {
+            dispatch({ type: 'AUTO_SHOOT' })
+          
+        }, 1000);
+
+        return () => clearInterval(timer)
+    }, []);
+
+    useEffect(() => {
+      
+        if (state.damageDealt >= waveGoal ) {
+            dispatch({ type: 'NEXT_WAVE' })
+        }
+    }, [state.damageDealt]);
 
 
         return (
