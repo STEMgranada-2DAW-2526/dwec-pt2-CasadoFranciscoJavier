@@ -34,50 +34,46 @@ export default function UpgradesBoard() {
                 <button
                     className='col-md-3 col-12 btn btn-primary'
                     onClick={() => dispatch({ type: 'TURRON' })}
-                    disabled={state.caramels < state.precioDanioClic}>
+                    disabled={state.caramels < state.PriceTurron}>
                     <img className='img-fluid' src={state.canion_turron} />
                 
                     Cañón de turron explosivo
                     <br />
                     Nivel: {state.danioPorClick}
                     <br />
-                    {state.precioDanioClic} caramels
+                    {state.autoShotsPerSecond} caramels
                     <br />
-                    <small>(+1 daño por clic)</small>
+                    <small>(+2 daño/segundo)</small>
                 </button>
 
                 <button
                     className='col-md-3 col-12 btn btn-primary'
                     onClick={() => dispatch({ type: 'COMPRAR_DANIO_SEGUNDO' })}
-                     disabled={state.caramels < state.precioDanioClic}>
+                     disabled={state.caramels < state.PriceRenoExplosivo}>
                     <img className='img-fluid' src={state.reno_lanza_cohetes} />
 
                     Renos lanzamisiles
                     <br />
-                    Nivel: {state.danioPorSegundo}
+                    Nivel: {state.autoShotsPerSecond}
                     <br />
-                    {state.precioDanioSegundo} caramels
+                    {state.PriceRenoExplosivo} caramels
                     <br />
-                    <small>(+1 daño/segundo)</small>
+                    <small>(+5 daño/segundo)</small>
                 </button>
 
                 <button
                     className='col-md-3 col-12 btn btn-primary'
                     onClick={() => dispatch({ type: 'COMPRAR_MEGA_CLIC' })}
-                     disabled={state.caramels < state.precioDanioClic}>
+                     disabled={state.caramels < state.PriceNavidadLaser}>
                     <img className='img-fluid' src={state.arbol_laser} />
 
-                   Árbol de Navidad Láser
+                   Árbol de Navidad Láser 
                     <br />
-                    50 caramels
+                    Nivel: {state.autoShotsPerSecond}
                     <br />
-                   
-                    {state.megaClicActivo && (
-                        <>
-                            <br />
-                            <strong>ACTIVO: {state.megaClicDuracion}s</strong>
-                        </>
-                    )}
+                    {state.PriceNavidadLaser} caramels
+                    <br />
+                    <small>(+10 daño/segundo)</small>
                 </button>
             </div>
         </>

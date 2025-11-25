@@ -19,6 +19,10 @@ const INITIAL_STATE = {
     upgrades: [],
 
     multiplierPrice: 10,
+    PriceTurron: 15,
+    PriceRenoExplosivo: 30,
+    PriceNavidadLaser: 50,
+
 
     arbol_laser,
     canion_turron,
