@@ -17,9 +17,14 @@ export function GameProvider({ children }) {
          let outputState = state;
 
         if (action.type == 'CLICK_SHOOT') {
-          DA
-            i
+         const newDamageDealt = state.damageDealt + state.damagePerShot;
+         outputState = { ...state, damageDealt: newDamageDealt };
+         if (newDamageDealt <=0) {
+            outputState = { ...state, caramels: state.caramels + 10 };
+         }
+        }
     }
+     
 
         const [state, dispatch] = useReducer(gameReducer, INITIAL_STATE)
 
@@ -29,6 +34,7 @@ export function GameProvider({ children }) {
             {children}
         </GameContext.Provider>
     );
+   
 
 }
 
