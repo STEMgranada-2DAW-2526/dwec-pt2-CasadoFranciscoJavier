@@ -63,18 +63,45 @@ export function GameProvider({ children }) {
             }
         }
 
-        else if (action.type == 'BUY_DAMAGE:TURRON' && state.caramels >= state.multiplierPrice) {
+        else if (action.type == 'BUY_DAMAGE:TURRON' && state.caramels >= state.PriceTurron) {
            
              outputState = {
                 ...state,
-                numeroOleada: state.numeroOleada + 1,
-                enemigosRestantes: cantidadEnemigos,
-                tiempoRestante: 20
+                damagePerShot: state.damagePerShot + 2,
+                caramels: state.caramels - state.PriceTurron,
+               
             }
+
+        
 
 
 
         }
+
+        else if (action.type == 'BUY_DAMAGE:RENO' && state.caramels >= state.PriceRenoExplosivo) {
+           
+             outputState = {
+                ...state,
+                damagePerShot: state.damagePerShot + 5,
+                caramels: state.caramels - state.PriceRenoExplosivo,
+               
+            }
+
+
+        }
+
+        else if (action.type == 'BUY_DAMAGE:LASER' && state.caramels >= state.PriceNavidadLaser) {
+           
+             outputState = {
+                ...state,
+                damagePerShot: state.damagePerShot + 10,
+                caramels: state.caramels - state.PriceNavidadLaser,
+               
+            }
+
+
+        }
+
 
          else if (action.type == 'NEXT_WAVE' && state.caramels >= state.multiplierPrice) {
             outputState = {

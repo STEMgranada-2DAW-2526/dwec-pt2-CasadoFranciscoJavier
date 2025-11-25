@@ -33,22 +33,21 @@ export default function UpgradesBoard() {
             <div className='row justify-content-center'>
                 <button
                     className='col-md-3 col-12 btn btn-primary'
-                    onClick={() => dispatch({ type: 'TURRON' })}
+                    onClick={() => dispatch({ type: 'BUY_DAMAGE:TURRON' })}
                     disabled={state.caramels < state.PriceTurron}>
                     <img className='img-fluid' src={state.canion_turron} />
                 
                     Cañón de turron explosivo
                     <br />
-                    Nivel: {state.danioPorClick}
-                    <br />
-                    {state.autoShotsPerSecond} caramels
+                 
+                    {state.PriceTurron} caramels
                     <br />
                     <small>(+2 daño/segundo)</small>
                 </button>
 
                 <button
                     className='col-md-3 col-12 btn btn-primary'
-                    onClick={() => dispatch({ type: 'COMPRAR_DANIO_SEGUNDO' })}
+                    onClick={() => dispatch({ type: 'BUY_DAMAGE:RENO' })}
                      disabled={state.caramels < state.PriceRenoExplosivo}>
                     <img className='img-fluid' src={state.reno_lanza_cohetes} />
 
@@ -63,7 +62,7 @@ export default function UpgradesBoard() {
 
                 <button
                     className='col-md-3 col-12 btn btn-primary'
-                    onClick={() => dispatch({ type: 'COMPRAR_MEGA_CLIC' })}
+                    onClick={() => dispatch({ type: 'BUY_DAMAGE:LASER' })}
                      disabled={state.caramels < state.PriceNavidadLaser}>
                     <img className='img-fluid' src={state.arbol_laser} />
 
