@@ -2,7 +2,7 @@ import { createContext, useEffect, useReducer } from 'react';
 
 import arbol_laser from "./assets/arbol_laser.png";
 import canion_turron from "./assets/canion_turron.png";
-import caramelo_sangriento from "./assets/abuela.png";
+import caramelo_sangriento from "./assets/caramelo_sangriento.png";
 import multiplicador from "./assets/multiplicador.png";
 import reno_lanza_cohetes from "./assets/reno_lanza_cohetes.png";
 import torre from "./assets/torre.png";
@@ -38,7 +38,7 @@ export function GameProvider({ children }) {
             const newDamageDealt = state.damageDealt + state.damagePerShot;
             outputState = { ...state, damageDealt: newDamageDealt };
             if (newDamageDealt <= state.waveGoal) {
-                outputState = { ...state, caramels: state.caramels + 10, damageDealt: waveGoal };
+                outputState = { ...state, caramels: state.caramels + 10, damageDealt: state.waveGoal };
             }
         }
 
@@ -46,7 +46,7 @@ export function GameProvider({ children }) {
             const newDamageDealt = state.damageDealt + state.autoShotsPerSecond;
             outputState = { ...state, damageDealt: newDamageDealt };
             if (newDamageDealt <= state.waveGoal) {
-                outputState = { ...state, caramels: state.caramels + 10, damageDealt: waveGoal };
+                outputState = { ...state, caramels: state.caramels + 10, damageDealt: state.waveGoal };
             }
         }
 
@@ -100,7 +100,7 @@ export function GameProvider({ children }) {
 
     useEffect(() => {
       
-        if (state.damageDealt >= waveGoal ) {
+        if (state.damageDealt >= state.waveGoal ) {
             dispatch({ type: 'NEXT_WAVE' })
         }
     }, [state.damageDealt]);
