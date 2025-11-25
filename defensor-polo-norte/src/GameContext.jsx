@@ -1,5 +1,12 @@
 import { createContext, useEffect, useReducer } from 'react';
 
+import arbol_laser from "./assets/arbol_laser.png";
+import canion_turron from "./assets/canion_turron.png";
+import caramelo_sangriento from "./assets/abuela.png";
+import multiplicador from "./assets/multiplicador.png";
+import reno_lanza_cohetes from "./assets/reno_lanza_cohetes.png";
+import torre from "./assets/torre.png";
+
 export const GameContext = createContext();
 
 const INITIAL_STATE = {
@@ -11,7 +18,15 @@ const INITIAL_STATE = {
     autoShotsPerSecond: 1,
     upgrades: [],
 
-    multiplierPrice: 10
+    multiplierPrice: 10,
+
+    arbol_laser,
+    canion_turron,
+    caramelo_sangriento,
+    multiplicador,
+    reno_lanza_cohetes,
+    torre
+
 };
 
 export function GameProvider({ children }) {

@@ -6,33 +6,15 @@ export default function Game() {
         const { state, dispatch } = useContext(GameContext);
 
      return (
+         
+
+    <div className='container'>
         <div className='row justify-content-center'>
-         
-                <div className='col-md-6 col-12'>
-                    <h3>Enemigo</h3>
-
-                    <div className='progress' style={{ height: '30px' }}>
-                        <div
-                            className='progress-bar bg-danger'
-                            role='progressbar'
-                            style={{ width: `${(state.saludEnemigo / state.saludMaximaEnemigo) * 100}%` }}
-                        >
-                            {Math.round(state.saludEnemigo)} / {state.saludMaximaEnemigo}
-                        </div>
-                    </div>
-
-                    <br />
-                    <button
-                        className='btn btn-danger btn-lg'
-                        onClick={() => dispatch({ type: 'CLIC_ENEMIGO' })}
-                    >
-                        Atacar
-                        <br />
-                        ({state.megaClicActivo ? state.danioPorClick * 2 : state.danioPorClick} de daño)
-                    </button>
-                </div>
-         
-            
+          <h1 className='col-12 '>{Math.round(state.cookies)} 🍪</h1>
+          <button className='col-5 btn btn-transparent' onClick={() => dispatch({ type: 'CLICK_COOKIE' })}>
+            <img className='img-fluid' src={state.cookieImg} />
+          </button>
         </div>
+    </div>
     )
 }
